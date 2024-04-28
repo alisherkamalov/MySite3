@@ -38,13 +38,7 @@ def main(page: ft.Page):
         ])
     )
     def order(event):
-        entry.value = ''
-        entry2.value = ''
-        drop.value = None
-        drop2.value = None
-        company.value = ''
-        email.value = ''
-        page.update
+        
         order_cont = ft.Container (
             
             bgcolor=ft.colors.GREY_200,
@@ -92,8 +86,14 @@ def main(page: ft.Page):
         else:
             page.clean()
             page.add(ft.Column([cap_cont, loading_cont,order_cont, bottombar, bottombar2]))
-            
+            entry.value = ''
+            entry2.value = ''
+            drop.value = None
+            drop2.value = None
+            company.value = ''
+            email.value = ''
             page.update
+           
             
     def loading(event):
         
@@ -103,6 +103,13 @@ def main(page: ft.Page):
             
             page.clean()
             page.add(ft.Column([cap_cont, loading_cont, article2, bottombar, bottombar2]))
+            entry.value = ''
+            entry2.value = ''
+            drop.value = None
+            drop2.value = None
+            company.value = ''
+            email.value = ''
+            page.update
             
             
         page.update
@@ -115,7 +122,13 @@ def main(page: ft.Page):
             
             page.clean()
             page.add(ft.Column([cap_cont, body_cont, cont_services, cont_company,cont_news, bottombar, bottombar2]))
-            
+            entry.value = ''
+            entry2.value = ''
+            drop.value = None
+            drop2.value = None
+            company.value = ''
+            email.value = ''
+            page.update
         
         
         
@@ -130,6 +143,13 @@ def main(page: ft.Page):
             
             page.clean()
             page.add(ft.Column([cap_cont, breadcrumbs, article, bottombar, bottombar2]))
+            entry.value = ''
+            entry2.value = ''
+            drop.value = None
+            drop2.value = None
+            company.value = ''
+            email.value = ''
+            page.update
         
         page.update
     
