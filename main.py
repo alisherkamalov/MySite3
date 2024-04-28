@@ -944,7 +944,29 @@ def main(page: ft.Page):
         
         
     )
+    name_file = ft.Text(value='ФАЙЛ НЕ ВЫБРАН', size=15, color=ft.colors.BLACK)
     
+    
+    
+    def file(event: ft.FilePickerResultEvent):
+        
+        file_picker = ft.FilePicker(on_result=file)
+        page.overlay.append(file_picker)
+        page.update()
+        
+        
+        
+        file_picker.pick_files(allow_multiple=True)
+        
+        
+        
+        
+        for f in event.files:
+            name_file.value = f'{f.name}'
+        page.update()
+        page.overlay.clear()
+        page.update()
+        
     
     
     article2 = ft.Container (
@@ -1000,15 +1022,17 @@ def main(page: ft.Page):
                                     ft.Row([
                                         ft.Container (
                                             bgcolor=ft.colors.BLUE_300,
-                                            padding=ft.padding.only(15,6),
+                                            alignment=ft.alignment.center,
                                             width = 150,
                                             height = 35,
                                             border_radius=15,
+                                            on_click=file,
                                             content=ft.Stack([
-                                                ft.Text('ВЫБЕРИТЕ ФАЙЛ', size=15, color=ft.colors.WHITE, selectable=True)
+                                                ft.Text('ВЫБЕРИТЕ ФАЙЛ', size=12, color=ft.colors.WHITE, selectable=True)
                                             ])
                                         ),
-                                        ft.Text('ФАЙЛ НЕ ВЫБРАН', size=15, color=ft.colors.BLACK)
+                                        name_file
+                                        
                                     ]),
                                     ft.Text('', size=17.9,),
                                     ft.Text(''),
@@ -1136,4 +1160,4 @@ def main(page: ft.Page):
     
     #
     
-ft.app(target=main, view=None)
+ft.app(target=main, port=5200, view=ft.WEB_BROWSER)
