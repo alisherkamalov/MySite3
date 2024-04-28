@@ -85,6 +85,12 @@ def main(page: ft.Page):
         else:
             page.clean()
             page.add(ft.Column([cap_cont, loading_cont,order_cont, bottombar, bottombar2]))
+            entry.value = ''
+            entry2.value = ''
+            drop.value = None
+            drop2.value = None
+            company.value = ''
+            email.value = ''
             page.update
             
     def loading(event):
